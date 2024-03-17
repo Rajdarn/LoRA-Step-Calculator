@@ -1,0 +1,470 @@
+[gd_scene load_steps=3 format=3 uid="uid://bld24a2igbck1"]
+
+[ext_resource type="Theme" uid="uid://c0r7l3cqnv016" path="res://main_theme.tres" id="1_6hetj"]
+[ext_resource type="Script" path="res://root.gd" id="1_r1oxh"]
+
+[node name="root" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_6hetj")
+script = ExtResource("1_r1oxh")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/ScrollContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBox" type="VBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_type_variation = &"TitlePanel"
+
+[node name="Label2" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"TitleLabel"
+theme_override_font_sizes/font_size = 32
+text = "[LoRA training parameter calculator]"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox"]
+layout_mode = 2
+
+[node name="Calc" type="PanelContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBox" type="HBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CalcLabels" type="VBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc/VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LImg" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc/VBox/CalcLabels"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "How many images will be included in the dataset used for training?"
+text = "Number of images:"
+
+[node name="LRepeat" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc/VBox/CalcLabels"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Ammount of repeats per image"
+text = "Repeats:"
+
+[node name="LEpoch" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc/VBox/CalcLabels"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Ammount of training epochs"
+text = "Epochs:"
+
+[node name="LRegul" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc/VBox/CalcLabels"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Will regularization images be used during training?"
+mouse_filter = 1
+text = "Regularization images:"
+
+[node name="LBatch" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc/VBox/CalcLabels"]
+layout_mode = 2
+size_flags_vertical = 3
+tooltip_text = "Training batch size"
+text = "Batch size:"
+
+[node name="CalcTE" type="VBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc/VBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SBImg" type="SpinBox" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc/VBox/CalcTE"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 999.0
+value = 1.0
+allow_greater = true
+
+[node name="SBRepeat" type="SpinBox" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc/VBox/CalcTE"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 999.0
+value = 1.0
+allow_greater = true
+
+[node name="SBEpoch" type="SpinBox" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc/VBox/CalcTE"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 999.0
+value = 1.0
+allow_greater = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc/VBox/CalcTE"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc/VBox/CalcTE/HBoxContainer"]
+layout_mode = 2
+text = "No"
+
+[node name="CBReg" type="CheckButton" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc/VBox/CalcTE/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc/VBox/CalcTE/HBoxContainer"]
+layout_mode = 2
+text = "Yes"
+
+[node name="SBBatch" type="SpinBox" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Calc/VBox/CalcTE"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 999.0
+value = 1.0
+allow_greater = true
+
+[node name="CalcInfo" type="VBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/CalcInfo"]
+layout_mode = 2
+
+[node name="BCShowInfo" type="Button" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/CalcInfo/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = ">"
+
+[node name="LCInfo" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/CalcInfo/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Show info"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PCInfo" type="PanelContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/CalcInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LFindRepeats2" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/CalcInfo/PCInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Suggested workflow:
+Keep \"number of images\" and \"batch size\" constant.
+Adjust repeats and epochs to reach desired step target.
+
+If a \"steps per epoch\" target is desired:
+Use the tool below -> enter the result in the \"repeats\" box.
+Keep repeats constant -> only adjust epochs to reach disred \"total steps\" target.
+
+formula: total steps = (number of images * repeats * epochs * regularization multiplier) / batch size*
+Regularization images \"No\" -> regularization multiplier = 1*
+Regularization images \"Yes\" -> regularization multiplier = 2*"
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox"]
+layout_mode = 2
+
+[node name="Find repeats" type="PanelContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats"]
+layout_mode = 2
+
+[node name="LFindRepeats" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Calculate repeats based on target"
+horizontal_alignment = 1
+
+[node name="Calc2" type="HBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer"]
+layout_mode = 2
+
+[node name="CalcLabels" type="VBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer/Calc2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LImg" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer/Calc2/CalcLabels"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Number of images:"
+
+[node name="LEpoch" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer/Calc2/CalcLabels"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Target steps per epoch:"
+
+[node name="LRepeat" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer/Calc2/CalcLabels"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Repeats per epoch:"
+
+[node name="FindRepeats" type="VBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer/Calc2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LFRImg" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer/Calc2/FindRepeats"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "123"
+
+[node name="SBFREpoch" type="SpinBox" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer/Calc2/FindRepeats"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+min_value = 1.0
+max_value = 999.0
+value = 200.0
+allow_greater = true
+
+[node name="LRepeat" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer/Calc2/FindRepeats"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "123"
+
+[node name="HSeparator" type="HSeparator" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="FRInfo" type="VBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer/FRInfo"]
+layout_mode = 2
+
+[node name="BFRShowInfo" type="Button" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer/FRInfo/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = ">"
+
+[node name="LFRInfo" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer/FRInfo/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Show info"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PFRInfo" type="PanelContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer/FRInfo"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LFindRepeats2" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer/FRInfo/PFRInfo"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "This tool shows how many \"repeats\" are required to reach a desired \"steps per epoch\" target.
+This does not alter the main calculation, the resulting \"repeats per epoch\" should be manually entered in the \"repeats\" field above if a \"steps per epoch\" target is desired.
+
+formula: repeats per epoch = (target epoch / nr of images)*"
+autowrap_mode = 3
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox"]
+layout_mode = 2
+
+[node name="Results" type="Panel" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox"]
+custom_minimum_size = Vector2(0, 90.645)
+layout_mode = 2
+size_flags_vertical = 3
+theme_type_variation = &"Result_Panel"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Results"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Results/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Results/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"LabelUnderline"
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Results"
+horizontal_alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Results/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"PanelBorder"
+
+[node name="SPE" type="HBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Results/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="LSPE" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Results/MarginContainer/VBoxContainer/PanelContainer/SPE"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Steps per epoch:"
+
+[node name="LSPEResult" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Results/MarginContainer/VBoxContainer/PanelContainer/SPE"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "123"
+
+[node name="LSPE2" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Results/MarginContainer/VBoxContainer/PanelContainer/SPE"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "(target = 200-400 steps*)"
+horizontal_alignment = 2
+justification_flags = 162
+
+[node name="PanelContainer2" type="PanelContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Results/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"PanelBorder"
+
+[node name="Result" type="HBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Results/MarginContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="LTotal" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Results/MarginContainer/VBoxContainer/PanelContainer2/Result"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Total steps:"
+
+[node name="LResult" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Results/MarginContainer/VBoxContainer/PanelContainer2/Result"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "123"
+
+[node name="LTotal2" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Results/MarginContainer/VBoxContainer/PanelContainer2/Result"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "(target = 1500-1600*)"
+
+[node name="HSeparator4" type="HSeparator" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox"]
+layout_mode = 2
+
+[node name="Info" type="PanelContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Info"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="LLInto" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Info/VBoxContainer2"]
+layout_mode = 2
+text = "Info"
+horizontal_alignment = 1
+
+[node name="LCalc" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Info/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Calculations are done using float variables.
+"
+vertical_alignment = 2
+
+[node name="Credits" type="VBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Info/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="LCredits" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Info/VBoxContainer2/Credits"]
+layout_mode = 2
+text = "*Formula and targets are taken from this article:
+"
+
+[node name="LinkButton" type="LinkButton" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Info/VBoxContainer2/Credits"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "https://aituts.com/stable-diffusion-lora/"
+uri = "https://aituts.com/stable-diffusion-lora/"
+
+[node name="Credits2" type="VBoxContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Info/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="LCredits" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Info/VBoxContainer2/Credits2"]
+layout_mode = 2
+text = "kohya_ss LoRA training documentation:
+"
+
+[node name="LinkButton" type="LinkButton" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Info/VBoxContainer2/Credits2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 10
+text = "https://github.com/bmaltais/kohya_ss/wiki/LoRA-training-parameters"
+uri = "https://github.com/bmaltais/kohya_ss/wiki/LoRA-training-parameters"
+
+[node name="PanelContainer2" type="PanelContainer" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Info/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="LVersion" type="Label" parent="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Info/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 3
+text = "Version: 1"
+vertical_alignment = 2
+
+[connection signal="pressed" from="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/CalcInfo/HBoxContainer/BCShowInfo" to="." method="_on_bc_show_info_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/MarginContainer/PanelContainer/VBox/Find repeats/VBoxContainer/FRInfo/HBoxContainer/BFRShowInfo" to="." method="_on_bfr_show_info_pressed"]

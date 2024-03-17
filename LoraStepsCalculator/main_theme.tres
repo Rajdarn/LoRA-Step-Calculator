@@ -1,0 +1,43 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://c0r7l3cqnv016"]
+
+[ext_resource type="StyleBox" uid="uid://bg0maf222ic5x" path="res://panel_main_style_box_flat.tres" id="1_tctis"]
+[ext_resource type="StyleBox" uid="uid://bilvqr28mx72k" path="res://line_edit_normal_style_box_flat.tres" id="1_xn4yj"]
+[ext_resource type="StyleBox" uid="uid://bbw3owgllg2gl" path="res://panel_resuts_style_box_flat.tres" id="2_ql2b8"]
+[ext_resource type="StyleBox" uid="uid://be4hlel17rhl0" path="res://panel_title_style_box_flat.tres" id="4_yghhh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ve4im"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fv24r"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ta3w4"]
+bg_color = Color(0, 0, 0, 0)
+
+[resource]
+HSeparator/colors/Accent = Color(0, 0, 0, 1)
+HSeparator/constants/separation = 20
+Label/font_sizes/font_size = 14
+LabelUnderline/base_type = &"Label"
+LabelUnderline/styles/normal = SubResource("StyleBoxFlat_ve4im")
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/styles/normal = ExtResource("1_xn4yj")
+MarginContainer/constants/margin_bottom = 15
+MarginContainer/constants/margin_left = 15
+MarginContainer/constants/margin_right = 15
+MarginContainer/constants/margin_top = 15
+Panel/colors/Accent = Color(0, 0, 0, 1)
+Panel/styles/panel = ExtResource("1_tctis")
+PanelBorder/base_type = &"PanelContainer"
+PanelBorder/styles/panel = SubResource("StyleBoxFlat_fv24r")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ta3w4")
+Result_Panel/base_type = &"Panel"
+Result_Panel/styles/panel = ExtResource("2_ql2b8")
+TitleLabel/base_type = &"Label"
+TitleLabel/colors/font_color = Color(0, 0, 0, 1)
+TitlePanel/base_type = &"Panel"
+TitlePanel/styles/panel = ExtResource("4_yghhh")
